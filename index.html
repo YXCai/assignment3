@@ -22,7 +22,7 @@
         }
 
         form input {
-          background-color: #DCDCDC;
+          background-color: #909090;
             border: 0;
             padding: 10px;
             width: 70%;
@@ -44,6 +44,7 @@
 
         #messagediv {
             float: left;
+            position: relative;
             width: 50%;
             height: 800px;
             overflow-y: scroll;
@@ -130,12 +131,18 @@
                 console.log(data);
                 //document.write(data.message);
                 $("#messages").append("<div>" + data + "</div>");
+                var elem = document.getElementById('messagediv');
+                elem.scrollTop = elem.scrollHeight;
             });
             socket.on('to user', function(data) {
                 $("#messages").append("<div class='ownmessage'>" + data + "</div>");
+                var elem = document.getElementById('messagediv');
+                elem.scrollTop = elem.scrollHeight;
             });
             socket.on('history messages', function(data) {
                 $("#messages").append("<div>" + data + "</div>");
+                var elem = document.getElementById('messagediv');
+                elem.scrollTop = elem.scrollHeight;
             });
             socket.on('your name', function(data) {
                 name = data;
