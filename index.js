@@ -22,7 +22,7 @@ var alreadySentMessages = [];
 io.on('connection', function(socket) {
     // when the client emits 'adduser', this listens and executes
     socket.on('adduser', function(username) {
-        var uniqueName = "guest" + uniqueID;
+        var uniqueName = "guest" + " " + uniqueID;
         connectedUsers[uniqueName] = uniqueName;
         usernameToColor[uniqueName] = "#000000";
         // we store the username in the socket session for this client
